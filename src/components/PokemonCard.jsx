@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
-export default function PokemonCard({ name, type, img, onClickPokemon }) {
-  const [isClicked, setIsClicked] = useState(false);
+export default function PokemonCard({ name, type, img }) {
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(`Primer renderizado de ${name}`);
@@ -13,11 +14,10 @@ export default function PokemonCard({ name, type, img, onClickPokemon }) {
     <div
       className="pokemon-card"
       onClick={() => {
-        setIsClicked(!isClicked);
-        onClickPokemon(name);
+        navigate(`/pokemon/${name}`);
       }}
       style={{
-        border: isClicked ? '2px solid blue' : '2px solid gray',
+        border: '2px solid gray',
         padding: '10px',
         borderRadius: '8px',
         textAlign: 'center',
