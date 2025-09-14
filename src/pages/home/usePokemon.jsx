@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import {
+  fetchPokemonsWithDetails,
+  fetchPokemonList,
+} from '../../services/pokemonApi';
 
 export default function usePokemon() {
   const [pokemons, setPokemons] = useState([]);
@@ -8,11 +12,9 @@ export default function usePokemon() {
     const fetchPokemons = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          'https://pokeapi.co/api/v2/pokemon?limit=5'
-        );
-        const data = await response.json();
-        setPokemons(data.results);
+        const basicList = await fetchPokemonList(5);
+        const detailedPokemons = await fetchPokemonsWithDetails(basicList);
+        setPokemons(detailedPokemons);
       } catch (error) {
         setError(true);
       } finally {

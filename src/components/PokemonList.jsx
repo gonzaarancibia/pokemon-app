@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import PokemonCard from './PokemonCard';
+import PokemonCard from './pokemonCard/PokemonCard';
 
 export default function PokemonList({ pokemons }) {
-  const [isClicked, setIsClicked] = useState(false);
-
   return (
     <>
       <div className="pokemon-list" style={{ display: 'flex', gap: '20px' }}>
@@ -11,14 +8,10 @@ export default function PokemonList({ pokemons }) {
           <PokemonCard
             key={pokemon.name}
             name={pokemon.name}
-            type={pokemon.type}
-            img={pokemon.img}
+            types={pokemon.types}
+            img={pokemon.image}
           />
         ))}
-        <button onClick={() => setIsClicked(!isClicked)}>
-          Click Pokemon List
-        </button>
-        {isClicked && <p>Pokemon List clicked!</p>}
       </div>
     </>
   );
