@@ -23,5 +23,30 @@ export default function usePokemon() {
     };
     fetchPokemons();
   }, []);
-  return { pokemons, loading, error };
+
+  const searchPokemon = async (pokemonToFind) => {
+    if (!pokemonToFind) {
+      // If the search term is empty, fetch the initial list again
+      const basicList = await fetchPokemonList(5);
+      const detailedPokemons = await fetchPokemonsWithDetails(basicList);
+      setPokemons(detailedPokemons);
+      return;
+    }
+    setLoading(true);
+    try {
+      const basicList = await fetchPokemonList(1300);
+      const pokemonsMatched = basicList.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(pokemonToFind.toLowerCase())
+      );
+      const detailedPokemons = await fetchPokemonsWithDetails(pokemonsMatched);
+      setPokemons(detailedPokemons);
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { pokemons, searchPokemon, loading, error };
 }
