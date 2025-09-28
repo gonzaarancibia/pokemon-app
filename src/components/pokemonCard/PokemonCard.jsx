@@ -1,4 +1,4 @@
-import './PokemonCard.css';
+import './PokemonCard.scss';
 
 import { useNavigate } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -30,13 +30,7 @@ export default function PokemonCard({ name, types, img }) {
         navigate(`/pokemon/${name}`);
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="pokemon-card__header">
         <h2>{name}</h2>
         <span
           className={`pokemon-card__favorite${
