@@ -12,7 +12,7 @@ export default function usePokemon() {
   const [totalPokemons, setTotalPokemons] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const pokemonsPerPage = 20;
+  const pokemonsPerPage = 8;
 
   useEffect(() => {
     const fetchPokemons = async () => {

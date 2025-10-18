@@ -1,0 +1,66 @@
+// Skeleton animation
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.pokemon-card-skeleton {
+  max-width: 200px;
+  width: 200px;
+  height: 280px; // Match the real card height
+  margin: 0 auto;
+  border: 2px solid #e5e7eb;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__image {
+    width: 150px;
+    height: 120px;
+    // margin: 0 auto 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+  }
+
+  &__title {
+    height: 48px; // Match the real title height
+    width: 70%;
+    // margin: 0 auto 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  &__types {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 32px; // Match the real types container
+    margin: 10px 0;
+  }
+
+  &__type {
+    width: 60px;
+    height: 27px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+  }
+}

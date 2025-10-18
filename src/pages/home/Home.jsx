@@ -17,22 +17,17 @@ export default function Home() {
   } = usePokemon();
 
   return (
-    <>
-      {loading && <p>Loading...</p>}
+    <div>
       {error && <p>Error loading pokemons</p>}
       <SearchBar onSearch={searchPokemon} />
-      {!loading && !error && (
-        <>
-          <PokemonList pokemons={pokemons} />
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={goToPage}
-            hasNextPage={hasNextPage}
-            hasPreviousPage={hasPreviousPage}
-          />
-        </>
-      )}
-    </>
+      <PokemonList pokemons={pokemons} loading={loading} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={goToPage}
+        hasNextPage={hasNextPage}
+        hasPreviousPage={hasPreviousPage}
+      />
+    </div>
   );
 }
