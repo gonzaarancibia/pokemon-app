@@ -1,4 +1,5 @@
 import React from 'react';
+import PaginationSkeleton from './components/PaginationSkeleton';
 
 export default function Pagination({
   currentPage,
@@ -6,6 +7,7 @@ export default function Pagination({
   onPageChange,
   hasNextPage,
   hasPreviousPage,
+  loading,
 }) {
   const handlePrevious = () => {
     if (hasPreviousPage) {
@@ -41,6 +43,10 @@ export default function Pagination({
 
     return pages;
   };
+
+  if (loading) {
+    return <PaginationSkeleton />;
+  }
 
   return (
     <div

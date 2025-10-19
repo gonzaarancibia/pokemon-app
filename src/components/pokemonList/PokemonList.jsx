@@ -1,23 +1,9 @@
-import PokemonCard from './pokemonCard/PokemonCard';
-import PokemonCardSkeleton from './pokemonCard/PokemonCardSkeleton';
+import PokemonCard from '../pokemonCard/PokemonCard';
+import PokemonCardSkeleton from '../pokemonCard/PokemonCardSkeleton';
 import './PokemonList.scss';
 
 export default function PokemonList({ pokemons, loading = false }) {
   // Show 8 skeletons when loading (2 rows x 4 columns)
-  if (false) {
-    return (
-      <div className="pokemon-list">
-        <PokemonCardSkeleton key={`skeleton-${1}`} />
-        <PokemonCard
-          key={pokemons?.[0].name}
-          name={pokemons?.[0].name}
-          types={pokemons?.[0].types}
-          img={pokemons?.[0].image}
-        />
-      </div>
-    );
-  }
-
   if (loading) {
     return (
       <div className="pokemon-list">
