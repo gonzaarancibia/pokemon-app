@@ -34,9 +34,8 @@ Esta aplicación cubre los **conceptos fundamentales de React** que todo desarro
   - Props y comunicación entre componentes
   - Composición de componentes
 
-- **📱 UI/UX Avanzada**
+- **📱 UI/UX**
   - **SCSS** para estilos modulares
-  - Diseño responsive
   - Skeleton loading states
   - Animaciones y transiciones
 
@@ -54,7 +53,6 @@ Esta aplicación cubre los **conceptos fundamentales de React** que todo desarro
 - ✅ **Ordenamiento** - Organiza alfabéticamente
 - ✅ **Paginación** - Navega eficientemente por grandes listas
 - ✅ **Vista Detallada** - Información completa de cada Pokemon
-- ✅ **Diseño Responsive** - Funciona perfectamente en móviles y desktop
 - ✅ **Loading States** - Experiencia de usuario fluida con skeletons
 
 ## 🛠️ Tecnologías Utilizadas
