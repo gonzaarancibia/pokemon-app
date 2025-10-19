@@ -1,0 +1,28 @@
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 45px;
+  padding: 15px;
+  max-width: 1000px;
+  min-width: 50vw;
+  margin: 0 auto;
+  height: 650px; // Fixed height to prevent container changes
+  align-content: start;
+  
+  // Responsive design
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}

@@ -1,16 +1,34 @@
-import PokemonList from '../../components/PokemonList';
-import usePokemon from './usePokemon';
-import SearchBar from '../../components/searchBar/SearchBar';
+import PokemonList from '../../components/pokemonList/PokemonList';
+import usePokemon from './hooks/usePokemon';
+import ControlsBar from '../../components/controlsBar/ControlsBar';
+import Pagination from '../../components/pagination/Pagination';
 
 export default function Home() {
-  const { pokemons, searchPokemon, loading, error } = usePokemon();
+  const {
+    pokemons,
+    searchPokemon,
+    loading,
+    error,
+    currentPage,
+    totalPages,
+    goToPage,
+    hasNextPage,
+    hasPreviousPage,
+  } = usePokemon();
 
   return (
-    <>
-      {loading && <p>Loading...</p>}
+    <div>
       {error && <p>Error loading pokemons</p>}
-      <SearchBar onSearch={searchPokemon} />
-      {!loading && !error && <PokemonList pokemons={pokemons} />}
-    </>
+      <ControlsBar onSearch={searchPokemon} />
+      <PokemonList pokemons={pokemons} loading={loading} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={goToPage}
+        hasNextPage={hasNextPage}
+        hasPreviousPage={hasPreviousPage}
+        loading={loading}
+      />
+    </div>
   );
 }

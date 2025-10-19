@@ -18,14 +18,13 @@ export default function SearchBar({ onSearch }) {
     mode: 'onChange',
   });
 
-  // Observar el valor del input en tiempo real
   const searchTerm = watch('searchTerm');
 
   const onSubmit = (data) => {
     if (data.searchTerm.trim()) {
       onSearch(data.searchTerm.trim());
       setSearchDisplayed(data.searchTerm.trim());
-      reset(); // Limpiar el formulario
+      reset();
     }
   };
 
@@ -60,8 +59,9 @@ export default function SearchBar({ onSearch }) {
           Buscar
         </button>
       </form>
-      {searchDisplayed.trim() && (
-        <div className="search-bar__info">
+
+      <div className="search-bar__info">
+        {searchDisplayed.trim() && (
           <button
             type="button"
             className="search-bar__clear-button"
@@ -72,11 +72,11 @@ export default function SearchBar({ onSearch }) {
             </span>
             <span className="search-bar__clear-icon">×</span>
           </button>
-        </div>
-      )}
-      {errors.searchTerm && (
-        <p className="search-bar__error">{errors.searchTerm.message}</p>
-      )}
+        )}
+        {errors.searchTerm && (
+          <p className="search-bar__error">{errors.searchTerm.message}</p>
+        )}
+      </div>
     </div>
   );
 }

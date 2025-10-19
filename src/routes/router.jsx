@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Link } from 'react-router';
 import Home from '../pages/home/Home.jsx';
 import ErrorPage from '../pages/ErrorPage.jsx';
 import PokemonDetail from '../pages/PokemonDetail.jsx';
@@ -10,7 +10,17 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     errorElement: <ErrorPage />,
-    children: [{ index: true, path: '/home', element: <Home /> }],
+    children: [
+      {
+        path: '/',
+        element: (
+          <Link to="/home">
+            <button>Home</button>
+          </Link>
+        ),
+      },
+      { index: true, path: '/home', element: <Home /> },
+    ],
   },
   {
     path: 'pokemon/:id',

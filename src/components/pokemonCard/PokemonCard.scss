@@ -35,19 +35,49 @@ $box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .pokemon-card {
+  max-width: 200px;
   @include card-style();
   text-align: center;
   cursor: pointer;
   @include button-hover(1.02, 0.3s);
+  width: 200px;
+  height: 280px; // Fixed height to prevent layout shifts
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    width: 150px;
+    height: 120px;
+    object-fit: contain;
+    flex-shrink: 0; // Prevent image from shrinking
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 8px 0;
+    height: 24px; // Fixed height for title
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   &__header {
     display: flex;
     justify-content: center;
     align-items: center;
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
   }
 
   &__favorite {
@@ -67,17 +97,20 @@ $box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 
   &__container-types {
     @include flex-center(row, 8px);
-    margin-top: 10px;
+    margin: 10px 0;
     flex-wrap: wrap;
+    min-height: 32px; // Fixed minimum height for types container
+    align-items: flex-start;
+    justify-content: center;
   }
 
   &__type {
     background: $type-bg-color;
     color: $type-text-color;
     border-radius: $type-border-radius;
-    padding: 4px 12px;
+    padding: 3px 8px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8rem;
     box-shadow: $box-shadow;
     text-transform: capitalize;
     border: 1px solid $border-color;
