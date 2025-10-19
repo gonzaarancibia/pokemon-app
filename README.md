@@ -1,4 +1,4 @@
-*# 🎯 Pokemon App - Aprende React desde Cero
+# 🎯 Pokemon App - Aprende React desde Cero
 
 ![Pokemon App](https://images.unsplash.com/photo-1542779283-429940ce8336?w=800&h=400&fit=crop&crop=center)
 
